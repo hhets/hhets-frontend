@@ -1,0 +1,36 @@
+<polymer-element name="d3-simpletable" attributes="data">
+  <template>
+    <span id="simpleTable"></span>
+  </template>
+  <script>
+    (function(){
+      var matrix = [
+        [11975,  5871, 8916, 2868],
+        [ 1951, 10048, 2060, 6171],
+        [ 8010, 16145, 8090, 8045],
+        [ 1013,   990,  940, 6907]
+      ];
+
+
+            Polymer('d3-simpletable', {
+              data:[
+        [11975,  5871, 8916, 2868],
+        [ 1951, 10048, 2060, 6171],
+        [ 8010, 16145, 8090, 8045],
+        [ 1013,   990,  940, 6907]
+      ],
+        ready: function() {
+          var that = this;
+          var tr = d3.select(that.$.simpleTable).append("table").selectAll("tr")
+            .data(this.data)
+            .enter().append("tr");
+      
+          var td = tr.selectAll("td")
+            .data(function(d) { return d; })
+            .enter().append("td")
+             .text(function(d) { return d; });     
+        }
+      });
+    })();
+  </script>
+</polymer-element>

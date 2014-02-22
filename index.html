@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
     <link rel="import" href="bower_components/polymer/polymer.html">
-    <link rel="import" href="elements/d3-wordcloud.html">
-    <link rel="import" href="elements/d3-simpletable.html">
     <style>
     table{border:2px solid red}
     tr{border-bottom:1px solid black;}
@@ -19,12 +17,11 @@
     </style>
   </head>
   <body>
+      <!-- Scripts -->
       <script src="bower_components/platform/platform.js"></script>
-      <d3-wordcloud></d3-wordcloud>
-      <d3-wordcloud data="['custom','words','are','also','supported']"></d3-wordcloud>
-      <d3-simpletable></d3-simpletable>
-      <d3-simpletable data="[[2,'asdasdasdasd',4,5],[3,4,5,6]]"></d3-simpletable>
       <script src="bower_components/d3/d3.min.js"></script>
-      <script src="bower_components/d3-cloud/d3.layout.cloud.js"></script>
+      
+      <!-- Content -->
+      <hhets-label value="firstLabel"></hhets-label>
   </body>
 </html>
