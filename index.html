@@ -24,7 +24,7 @@
       
       <!-- Content -->
       <hhets-app></hhets-app>
-      <hhets-notification id="NotificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
+      <hhets-notification id="notificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
       <hhets-label id="greenCounter" value="15" color="green"></hhets-label>
       <hhets-label id="orangeCounter" value="4" color="orange"></hhets-label>
       <hhets-label id="redCounter" value="3" color="red"></hhets-label>
@@ -42,6 +42,11 @@
           gr.value = Math.floor(Math.random() * 5);          
         }
       ,2000);
+
+        window.setInterval(function(){
+            notification = document.getElementById('notificationTab');
+            notification.value == '' ? notification.value = 'Troponin Alert!' :  notification.value = '';
+        }, 5000);
     });
   </script>
   
