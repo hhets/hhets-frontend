@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>D3 Polymer Example App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="elements/d3-wordcloud.html">
+    <link rel="import" href="elements/d3-simpletable.html">
+    <style>
+    table{border:2px solid red}
+    tr{border-bottom:1px solid black;}
+    tr:last-child{border-bottom:none}
+    td{border-right:1px solid black;}
+    td:last-child{border-right:none;}
+    </style>
+  </head>
+  <body>
+      <script src="bower_components/platform/platform.js"></script>
+      <d3-wordcloud></d3-wordcloud>
+      <d3-wordcloud data="['custom','words','are','also','supported']"></d3-wordcloud>
+      <d3-simpletable></d3-simpletable>
+      <d3-simpletable data="[[2,'asdasdasdasd',4,5],[3,4,5,6]]"></d3-simpletable>
+      <script src="bower_components/d3/d3.min.js"></script>
+      <script src="bower_components/d3-cloud/d3.layout.cloud.js"></script>
+  </body>
+</html>
