@@ -1,0 +1,24 @@
+<polymer-element name="hhets-notification" attributes="value color size">
+  <template>
+    <label style="color:{{color}};font-size:{{size}}px;" id="simpleNotification">{{value}}</label>
+  </template>
+  <style>
+    #simpleNotification{
+      font-size: 50px;
+      text-align: center;
+    }
+  </style>
+  <script>
+    (function(){
+      Polymer('hhets-notification', {
+        value: 'undefinedNotification',
+        color: 'blue',
+        size : 50,
+        ready: function() {
+          var self = this;
+          var label = self.$.simpleNotification;
+        }
+      });
+    })();
+  </script>
+</polymer-element>
