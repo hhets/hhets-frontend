@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>D3 Polymer Example App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    
+    <!-- Our custom elements -->
+    <link rel="import" href="elements/hhets-label.html">
+    <link rel="import" href="elements/hhets-app.html">
+    <link rel="import" href="elements/hhets-notification.html">
+    <link rel="import" href="elements/hhets-sound.html">
+
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+
+  </head>
+  <body>
+      <!-- Scripts -->
+      <script src="bower_components/platform/platform.js"></script>
+      <script src="bower_components/d3/d3.min.js"></script>
+      
+      <!-- Content -->
+      <hhets-sound src="assets/sounds/outfile.mp3" /></hhets-sound>
+      <hhets-app></hhets-app>
+      <hhets-notification id="notificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
+      <hhets-label id="greenCounter" value="15" color="green"></hhets-label>
+      <hhets-label id="orangeCounter" value="4" color="orange"></hhets-label>
+      <hhets-label id="redCounter" value="3" color="red"></hhets-label>
+  </body>
+
+<div id="header">
+  <div class="row">
+    <div class="col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
+        TROPONIN EVENT
+    </div>
+  </div>
+</div>
+
+<div id="tbody">
+  <div class="row line-time">
+      <div class="col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2""></div>
+  </div>
+  <div class="row timing">
+      <div class="col-sm-3 col-md-3 col-sm-offset-2 col-md-offset-2">
+          <p>Less than <span class="title-green">10min</span></p>
+      </div>
+      <div class="col-sm-3 col-md-3">
+          <p>Less than <span class="title-yellow">10min</span></p>
+      </div>
+      <div class="col-sm-3 col-md-3">
+          <p>Less than <span class="title-red">10min</span></p>
+      </div>
+      <div class="col-sm-3 col-md-3 col-sm-offset-2 col-md-offset-2">
+        <div id="roundGreen">
+            <span>1</span>
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+          <div id="roundYellow">
+            <span>2</span>
+          </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+          <div id="roundRed">
+            <span>5</span>
+          </div>
+      </div>
+  </div>
+  <div id="timingLabel">
+      <div class="row">
+          <div class="col-sm-3 col-md-3 col-sm-offset-2 col-md-offset-2">
+            <ul>
+                <li>test</li>
+            </ul>
+          </div>
+          <div class="col-sm-3 col-md-3">
+              <ul>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+              </ul>
+          </div>
+          <div class="col-sm-3 col-md-3">
+              <ul>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+                  <li>test</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>
+<div id="footer">
+
+
+</div>
+
+
+
+  <script>
+    document.addEventListener('polymer-ready', function() {
+      window.setInterval(function(){
+          gc = document.getElementById('greenCounter');
+          go = document.getElementById('orangeCounter');
+          gr = document.getElementById('redCounter');
+
+          gc.value = Math.floor(Math.random() * 20) + 1;
+          go.value = Math.floor(Math.random() * 15);
+          gr.value = Math.floor(Math.random() * 5);          
+        }
+      ,2000);
+
+        window.setInterval(function(){
+            notification = document.getElementById('notificationTab');
+            notification.value == '' ? notification.value = 'Troponin Alert!' :  notification.value = '';
+        }, 5000);
+    });
+  </script>
+  
+</html>
