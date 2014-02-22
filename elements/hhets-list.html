@@ -1,0 +1,16 @@
+<polymer-element name="hhets-list" attributes="data">
+  <template>
+    <ul id="items">
+      <template id="data" repeat="{{i in data}}">
+        <li>{{i}}</li>
+      </template>
+    </ul>
+  </template>
+  <script>
+    Polymer('hhets-list', {
+      data: [],
+      ready: function() {
+      },
+    });
+  </script>
+</polymer-element>
