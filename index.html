@@ -23,8 +23,25 @@
       
       <!-- Content -->
       <hhets-app></hhets-app>
-      <hhets-label value="15" color="green"></hhets-label>
-      <hhets-label value="4" color="orange"></hhets-label>
-      <hhets-label value="3" color="red"></hhets-label>
+      <hhets-label id="greenCounter" value="15" color="green"></hhets-label>
+      <hhets-label id="orangeCounter" value="4" color="orange"></hhets-label>
+      <hhets-label id="redCounter" value="3" color="red"></hhets-label>
   </body> 
+  
+  <script>
+    window.onload  = function(){
+    
+      window.setInterval(function(){
+          gc = document.getElementById('greenCounter');
+          go = document.getElementById('orangeCounter');
+          gr = document.getElementById('redCounter');
+
+          gc.value = Math.floor(Math.random() * 20) + 1;
+          go.value = Math.floor(Math.random() * 15);
+          gr.value = Math.floor(Math.random() * 5);          
+        }
+      ,2000);
+    }
+  </script>
+  
 </html>
