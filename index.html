@@ -14,6 +14,7 @@
     <!-- Our custom elements -->
     <link rel="import" href="elements/hhets-label.html">
     <link rel="import" href="elements/hhets-app.html">
+    <link rel="import" href="elements/hhets-list.html">
     <link rel="import" href="elements/hhets-notification.html">
 
   </head>
@@ -25,21 +26,30 @@
       <!-- Content -->
       <hhets-app></hhets-app>
       <hhets-notification id="NotificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
+      
       <hhets-label id="greenCounter" value="15" color="green"></hhets-label>
+      
       <hhets-label id="orangeCounter" value="4" color="orange"></hhets-label>
+      <hhets-list id="orangeList" data="[1,2,3]"></hhets-list>
+      
       <hhets-label id="redCounter" value="3" color="red"></hhets-label>
+      <hhets-list id="orangeList" data="[1,2]"></hhets-list>
+
   </body> 
   
   <script>
     document.addEventListener('polymer-ready', function() {
       window.setInterval(function(){
-          gc = document.getElementById('greenCounter');
-          go = document.getElementById('orangeCounter');
-          gr = document.getElementById('redCounter');
+          greenCounter = document.getElementById('greenCounter');
+          orangeCounter = document.getElementById('orangeCounter');
+          redCounter = document.getElementById('redCounter');
+          
+          orangeList = document.getElementById('orangeList');
+          redList = document.getElementById('redList');
 
-          gc.value = Math.floor(Math.random() * 20) + 1;
-          go.value = Math.floor(Math.random() * 15);
-          gr.value = Math.floor(Math.random() * 5);          
+          greenCounter.value = Math.floor(Math.random() * 20) + 1;
+          orangeCounter.value = Math.floor(Math.random() * 15);
+          redCounter.value = Math.floor(Math.random() * 5);
         }
       ,2000);
     });

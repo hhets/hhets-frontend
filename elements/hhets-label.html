@@ -2,44 +2,15 @@
   <template>
     <label class="flipped" style="color:{{color}};font-size:{{size}}px;" id="simpleLabel">{{value}}</label>
   </template>
-  <style>
-    #simpleLabel{
-      font-size:100px;
-      /*-webkit-transition: -webkit-transform 1s;
-         -moz-transition: -moz-transform 1s;
-           -o-transition: -o-transform 1s;
-              transition: transform 1s;
-      -webkit-transform-style: preserve-3d;
-         -moz-transform-style: preserve-3d;
-           -o-transform-style: preserve-3d;
-              transform-style: preserve-3d;*/
-    }
-    /*.flipped{
-      -webkit-transform: rotateY( 180deg );
-         -moz-transform: rotateY( 180deg );
-           -o-transform: rotateY( 180deg );
-              transform: rotateY( 180deg );
-    }*/
-  </style>
   <script>
     (function(){
       Polymer('hhets-label', {
         value: 'undefinedLabel',
         color: 'green',
         size : 100,
-        // valueChanged: function() {
-          // var self = this;
-          // var label = self.$.simpleLabel;
-          
-          // isFlipped = label.className == "flipped" ? true : false;
-          
-          // if (isFlipped){
-            // label.className = "";
-          // }
-          // else{
-            // label.className = "flipped";
-          // }
-        // },
+        valueChanged: function() {
+          //todo:
+        },
         ready: function() {
           //var self = this;
           //var label = self.$.simpleLabel;
