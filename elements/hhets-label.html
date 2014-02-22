@@ -1,11 +1,25 @@
 <polymer-element name="hhets-label" attributes="value color size">
   <template>
-    <label style="color:{{color}};font-size:{{size}}px;" id="simpleLabel">{{value}}</label>
+    <label class="flipped" style="color:{{color}};font-size:{{size}}px;" id="simpleLabel">{{value}}</label>
   </template>
   <style>
     #simpleLabel{
       font-size:100px;
+      /*-webkit-transition: -webkit-transform 1s;
+         -moz-transition: -moz-transform 1s;
+           -o-transition: -o-transform 1s;
+              transition: transform 1s;
+      -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+              transform-style: preserve-3d;*/
     }
+    /*.flipped{
+      -webkit-transform: rotateY( 180deg );
+         -moz-transform: rotateY( 180deg );
+           -o-transform: rotateY( 180deg );
+              transform: rotateY( 180deg );
+    }*/
   </style>
   <script>
     (function(){
@@ -13,9 +27,22 @@
         value: 'undefinedLabel',
         color: 'green',
         size : 100,
+        // valueChanged: function() {
+          // var self = this;
+          // var label = self.$.simpleLabel;
+          
+          // isFlipped = label.className == "flipped" ? true : false;
+          
+          // if (isFlipped){
+            // label.className = "";
+          // }
+          // else{
+            // label.className = "flipped";
+          // }
+        // },
         ready: function() {
-          var self = this;
-          var label = self.$.simpleLabel;
+          //var self = this;
+          //var label = self.$.simpleLabel;
         }
       });
     })();
