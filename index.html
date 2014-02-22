@@ -20,6 +20,7 @@
 
   </head>
   <body>
+      <div class="circle">15</div>
       <!-- Scripts -->
       <script src="bower_components/platform/platform.js"></script>
       <script src="bower_components/d3/d3.min.js"></script>
@@ -33,7 +34,7 @@
       <hhets-label id="greenCounter" value="15" color="green"></hhets-label>
       
       <hhets-label id="orangeCounter" value="4" color="orange"></hhets-label>
-      <hhets-list id="orangeList" data="[1,2,3]"></hhets-list>
+      <hhets-list id="orangeList" data="[1,2,3,'asdf']"></hhets-list>
       
       <hhets-label id="redCounter" value="3" color="red"></hhets-label>
       <hhets-list id="orangeList" data="[1,2]"></hhets-list>
@@ -61,6 +62,18 @@
             notification.value == '' ? notification.value = 'Troponin Alert!' :  notification.value = '';
         }, 5000);
     });
+    
+    function refresh(){
+      //Get the UI element to be updated
+      greenCounter = document.getElementById('greenCounter');
+      orangeCounter = document.getElementById('orangeCounter');
+      redCounter = document.getElementById('redCounter');
+      
+      orangeList = document.getElementById('orangeList');
+      redList = document.getElementById('redList');
+      
+      //Parse the server data
+    }
   </script>
   
 </html>
