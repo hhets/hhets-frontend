@@ -1,0 +1,12 @@
+{
+  "name": "hhets-frontend",
+  "description": "hhets-frontend",
+  "version": "0.0.1",
+  "author": "etsmtl.ca",
+  "dependencies": {},
+  "devDependencies": {
+    "stylus": "~0.42.2",
+    "gulp": "~3.5.2",
+    "gulp-stylus": "0.0.13"
+  }
+}
