@@ -1,0 +1,39 @@
+<link rel="import" href="../bower_components/polymer-ajax/polymer-ajax.html">
+
+<polymer-element name="hhets-query" attributes="endpoint interval params data">
+<template>
+  <polymer-ajax id="query" auto url="http://gdata.youtube.com/feeds/api/videos/" 
+      params='{"alt":"json", "q":"chrome"}'
+      handleAs="json"
+      on-polymer-response="{{handleResponse}}">
+      ></polymer-ajax>
+
+  <div>
+  </div>
+</template>
+  <script>
+    (function(){
+    Polymer('hhets-query', {
+        endpoint:"http//:example.com",
+        interval:5,
+        data:{},
+        handleResponse:function(r){
+          data=r;
+        },
+        intervalHandler:function(){
+          var self = this;
+          var interval = function(){
+            if(self.interval !== 0 || self.interval !== undefined){
+              self.$.query.go();
+              setTimeout(self.intervalHandler,self.interval);
+            }
+          }
+          interval();
+        },
+        ready: function() {
+          this.intervalHandler()
+        }
+      });
+    })();
+  </script>
+</polymer-element>
