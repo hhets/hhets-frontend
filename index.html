@@ -16,6 +16,7 @@
     <link rel="import" href="elements/hhets-app.html">
     <link rel="import" href="elements/hhets-list.html">
     <link rel="import" href="elements/hhets-notification.html">
+    <link rel="import" href="elements/hhets-sound.html">
 
   </head>
   <body>
@@ -24,9 +25,11 @@
       <script src="bower_components/d3/d3.min.js"></script>
       
       <!-- Content -->
+      <hhets-sound src="assets/sounds/outfile.mp3" /></hhets-sound>
       <hhets-app></hhets-app>
+
       <hhets-notification id="NotificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
-      
+
       <hhets-label id="greenCounter" value="15" color="green"></hhets-label>
       
       <hhets-label id="orangeCounter" value="4" color="orange"></hhets-label>
@@ -52,6 +55,11 @@
           redCounter.value = Math.floor(Math.random() * 5);
         }
       ,2000);
+
+        window.setInterval(function(){
+            notification = document.getElementById('notificationTab');
+            notification.value == '' ? notification.value = 'Troponin Alert!' :  notification.value = '';
+        }, 5000);
     });
   </script>
   

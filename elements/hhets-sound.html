@@ -1,0 +1,19 @@
+<script src="../bower_components/buzz/dist/buzz.min.js"></script>
+<polymer-element name="hhets-sound" attributes="src play">
+  <script>
+    (function(){
+    Polymer('hhets-sound', {
+      src:undefined,
+
+      ready: function() {
+        },
+      srcChanged:function(){
+        },
+        play:function(){
+        this.sound = new buzz.sound( this.src )
+        this.sound.play()
+        }
+    });
+    })();
+  </script>
+</polymer-element>
