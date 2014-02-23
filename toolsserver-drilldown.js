@@ -16,6 +16,7 @@ app.get('/data.json',function(req,res){
 })
 
 app.use('/', express.static(__dirname));
+app.use('/', express.static(__dirname + '/WWW'));
 app.listen(port);
 
 var generateThaList = function(currentTime){
