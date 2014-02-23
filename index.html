@@ -26,7 +26,7 @@
       <script src="bower_components/platform/platform.js"></script>
       <script src="bower_components/d3/d3.min.js"></script>
       
-      <hhets-query id="query" endpoint="http://localhost:8000/data.json" handleResponse="refresh(r)"></hhets-query>
+      <hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
       <!-- Content -->
 <div class="wrap">
 <header>
@@ -67,37 +67,27 @@
   </body> 
   
   <script>
+    //Bind ajax response to refresh method
     document.addEventListener('polymer-ready', function() {
-      //refresh();
+      var query = document.getElementById("query");
+      query.addEventListener("polymer-response", 
+        function(e) {
+          refresh(e.detail.response);
+        }
+      );
     });
     
-    function refresh(r){
-      console.log(r.detail.response);
-      this.data=r.detail.response;
-      data=r.detail.response;
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      // ttttttt = new Date().getTime();
-      // data = {
-        // "metadata":{servertime:ttttttt},
-        // "data":[
-          // {"id":"JR 1234 1111",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 2222",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-        // ]
-      // };
-      if (data === null){
-        //return;
-        alert('DAMMMIT');
+    function refresh(data){
+
+    if (data === null){
+        alert('No data received from server!');
+        return;
       }
-      alert('DAMMMIT3');
+      
       var serverTimeStamp = data.metadata.servertime;
       if (Math.floor(Math.random() * 2)){
         data.data[0].type = 'troponin';
       }
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
       var greenCount = 0;
       var orangeCount = 0;
@@ -108,6 +98,7 @@
       var redItems = [];
       
       //Parse the server data
+      //========================================================
       for (i = 0; i < data.data.length; i++) {
         d = data.data[i];
         
@@ -131,7 +122,8 @@
         }
       }
 
-      //Get the UI element to be updated
+      //Update the UI
+      //========================================================
       greenCounter = document.getElementById('greenCounter');
       orangeCounter = document.getElementById('orangeCounter');
       redCounter = document.getElementById('redCounter');
@@ -141,20 +133,22 @@
       
       troponinAlert = document.getElementById('notificationTab');
       
-      //Update the UI
+      //Update values
       greenCounter.value = greenCount;
       orangeCounter.value = orangeCount;
       redCounter.value = redCount;
       
       orangeList.data = orangeItems;
       redList.data = redItems;
-      alert('A');
-      console.log(greenCount);
-      console.log(orangeCount);
-      console.log(redCount);
       
-      // console.log(thereIsTroponin); 
+      //Troponin
+      //========================================================
       alertDiv = document.getElementById('alertNotifications');
+      
+      //remove all childs
+      while (alertDiv.hasChildNodes()) {
+        alertDiv.removeChild(alertDiv.lastChild);
+      }
        if (thereIsTroponin){
         //      <hhets-notification id="notificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
         
@@ -162,12 +156,6 @@
         troponinAlert.value = "Troponin Alert!";
         troponinAlert.color = "blue";
         alertDiv.appendChild(troponinAlert);
-      }
-      else{
-        //remove all childs
-        while (alertDiv.hasChildNodes()) {
-          alertDiv.removeChild(alertDiv.lastChild);
-        }
       }
       
     }

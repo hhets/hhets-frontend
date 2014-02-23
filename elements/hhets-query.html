@@ -1,6 +1,6 @@
 <link rel="import" href="../bower_components/polymer-ajax/polymer-ajax.html">
 
-<polymer-element name="hhets-query" attributes="endpoint interval params data handleResponse">
+<polymer-element name="hhets-query" attributes="endpoint interval params data">
 <template>
   <polymer-ajax id="query" url="{{endpoint}}" 
       params='{"alt":"json", "q":"chrome"}'
@@ -12,15 +12,23 @@
     (function(){
     Polymer('hhets-query', {
         endpoint:"http//:example.com",
-        interval:5,
+        interval:1000,
         data:{},
+        handleResponse:function(r){
+          //console.log(r.detail.response);
+          this.data = r.detail.response;
+          //this.fire('polymer-response', {response: this.data});
+        },
         intervalHandler:function(){
           var self = this;
           
           var intervalFn = function(){
+            console.log(self.intervalFn);
+            console.log(self.interval);
+
             if(self.interval !== 0 || self.interval !== undefined){
               self.$.query.go();
-              setTimeout(self.intervalFn,self.interval);
+              setTimeout(self.intervalFn, self.interval);
             }
           }
           
