@@ -1,19 +1,9 @@
 <polymer-element name="hhets-notification" attributes="value color size">
   <template>
-      <div id="notification-area">
-          <label style="color:{{color}};font-size:{{size}}px;" id="simpleNotification">{{value}}</label>
+      <div class="notification-area">
+          <span id="simpleNotification">{{value}}</span>
       </div>
   </template>
-  <style>
-      #notification-area {
-          background-color: #ffff00;
-          width: 100%;
-          text-align: center;
-      }
-      #simpleNotification{
-          font-size: 50px;
-      }
-  </style>
   <script>
     (function(){
       Polymer('hhets-notification', {
