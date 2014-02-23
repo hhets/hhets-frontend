@@ -24,13 +24,13 @@ app.listen(port);
 
 var generateThaList = function(currentTime){
   var list = [];
-  var l = Math.floor(Math.random() * 10);
+  var l = Math.floor(Math.random() * 10)+10;
 
   for(var i = 0; i < l; i++) {
     list.push({
       'id': 'J422' + getPaddedNumber(testIndex),
       'enteredTime': 1239081237908 + currentTime + Math.floor(Math.random() * 1000 * 60 * 15),
-      'type': [true,false][Math.round(Math.random())] ? 'troponin' : undefined
+      'type': Math.random() < 0.0001 ? 'troponin' : undefined
     });
     testIndex++;
   }
@@ -58,7 +58,7 @@ setInterval(function(){
     objectToSend.data.push({
       'id': 'J422' + getPaddedNumber(testIndex),
       'enteredTime': 1239081237908 + Date.now() + Math.floor(Math.random() * 1000 * 60 * 15),
-      'type': [true,false][Math.round(Math.random())] ? 'troponin' : null
+      'type': Math.random() < 0.0001 ? 'troponin' : undefined
     });
   }
 }, 5000);

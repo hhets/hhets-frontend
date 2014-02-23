@@ -21,7 +21,7 @@
 
   </head>
   <body>
-    <hhets-sound src="assets/sounds/outfile.mp3" /></hhets-sound>
+    <hhets-sound id="sound" src="assets/sounds/outfile.mp3" /></hhets-sound>
     <!-- Scripts -->
     <script src="bower_components/platform/platform.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
@@ -95,6 +95,7 @@
     
     function refresh(data){
 
+    var sound = document.getElementById("sound");
     if (data === null){
         alert('No data received from server!');
         return;
@@ -172,6 +173,7 @@
         alertDiv.removeChild(alertDiv.lastChild);
       }
        if (thereIsTroponin){
+        sound.play();
         //      <hhets-notification id="notificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
         
         troponinAlert = document.createElement("hhets-notification");
