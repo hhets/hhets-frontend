@@ -17,18 +17,17 @@
         handleResponse:function(r){
           //console.log(r.detail.response);
           this.data = r.detail.response;
-          //this.fire('polymer-response', {response: this.data});
         },
         intervalHandler:function(){
           var self = this;
           
           var intervalFn = function(){
-            console.log(self.intervalFn);
+            console.log(intervalFn);
             console.log(self.interval);
 
             if(self.interval !== 0 || self.interval !== undefined){
               self.$.query.go();
-              setTimeout(self.intervalFn, self.interval);
+              setTimeout(intervalFn, self.interval);
             }
           }
           

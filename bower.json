@@ -6,6 +6,7 @@
     "polymer-ajax": "Polymer/polymer-ajax#master",
     "normalize-css": "~3.0.0",
     "d3": "~3.4.2",
-    "snap.svg": "~0.2.0"
+    "snap.svg": "~0.2.0",
+    "buzz": "~1.1.0"
   }
 }
