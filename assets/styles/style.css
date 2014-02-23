@@ -64,12 +64,18 @@ hhets-label.orange {
 hhets-notification .notification-area {
   width: 100%;
   background: #ff0;
-  background-image: -webkit-repeating-linear-gradient(315deg, #f9c98b, #f9c98b 35px, #f29143 35px, #f29143 70px);
   background-image: repeating-linear-gradient(135deg, #f9c98b, #f9c98b 35px, #f29143 35px, #f29143 70px);
   min-height: 60px;
   font-size: 30px;
   font-weight: bold;
   line-height: 60px;
+}
+hhets-list li {
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #ddd;
+  width: 300px;
+  border-radius: 25px;
 }
 footer {
   display: block;

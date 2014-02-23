@@ -92,10 +92,7 @@
         color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
 
         data.forEach(function(d) {
-          console.log(d.date);
-          a = new Date(d.date);
-          console.log(a);
-          d.date = new Date(d.date);
+          d.date = new Date(parseInt(d.date, 10));
         });
 
         var browsers = stack(color.domain().map(function(name) {
