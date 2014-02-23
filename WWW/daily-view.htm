@@ -1,0 +1,199 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CoreLab Now</title>
+<style>
+body {
+	margin:0;
+	padding:0;
+	background-image:url(images/bar-bottom.png);
+	font-family:Arial;
+	font-size:12px;
+	color:#333333;
+}
+
+h2 { font-family:verdana; color:#ef7520; font-size: 12px; font-weight: bold; margin-top:5px;  }
+
+</style>
+<style type="text/css">
+
+a.sample_attach, a.sample_attach:visited, div.sample_attach
+{
+  display: block;
+  width:   250px;
+
+  border:  1px solid #e87525;
+  padding: 2px 5px;
+  margin-right: 20px;
+
+  background: #f9c708;
+
+  text-decoration: none;
+  font-family: Verdana, Sans-Sherif;
+  font-weight: 900;
+  font-size: 1.0em;
+  color:   #e87525;
+}
+a.sample_attach:hover {
+	background-color:#fff;
+	
+}
+
+a.sample_attach, a.sample_attach:visited { border-bottom: none; }
+
+form.sample_attach
+{
+  position: absolute;
+  visibility: hidden;
+
+  border:  1px solid black;
+  padding: 0px 5px 2px 5px;
+
+  background: #FFFFEE;
+}
+
+form.sample_attach b
+{
+  font-family: Verdana, Sans-Sherif;
+  font-weight: 900;
+  font-size: 1.1em;
+}
+
+input.sample_attach { margin: 1px 0px; width: 170px; }
+</style>
+
+<script>
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+		
+		
+function showGraphConfig(isActive){
+	if (isActive)
+	{
+		document.getElementById("graphConfig").style.width = "447px";
+		document.getElementById("graphConfig").style.left = (w.innerWidth-462) + "px";
+		document.getElementById("divConfigText").style.display = "";
+		
+	}
+	else
+	{
+		document.getElementById("graphConfig").style.width = "63px";
+		document.getElementById("graphConfig").style.left = (w.innerWidth-78) + "px";	
+		document.getElementById("divConfigText").style.display = "none";
+	}
+}
+
+
+</script>
+<script src="scripts/dropdown.js" language="javascript" type="text/javascript"></script>
+
+</head>
+
+<body>
+<div style="background-image:url(images/bar-top-yellow.png); height:40px; width:100%;">
+    <div style="background-image:url(images/bar-top-blue.png); height:40px; width:63px; float:left"></div>
+  <div style="background-image:url(images/logo-jgh-top.png); height:40px; width:471px; float:left"></div>
+<div style="height:40px; width:471px; float:right; text-align:right; padding-right:70px;">
+        
+<div id="sample_attach_menu_parent" class="sample_attach" style="border: none; float:right">
+<img src="images/menu-icon.png" width="12" height="13" vspace="10" border="0" align="absmiddle"> Main Menu</div>
+<div id="sample_attach_menu_child">
+<a class="sample_attach" href="daily-view.htm" style="padding: 10px 10px;">In-Patient / Emergency Daily View</a>
+<a class="sample_attach" href="turn-around.htm" style="padding: 10px 10px;">Average Turn-Around Time View</a>
+<a class="sample_attach" href="index.htm" style="padding: 0px 10px; border-bottom:  1px solid #e87525;"><img src="images/exit-icon.png" width="15" height="16" vspace="10" border="0" align="absmiddle"> Exit Session</a>
+</div>
+
+<script type="text/javascript">
+at_attach("sample_attach_menu_parent", "sample_attach_menu_child", "hover", "y", "pointer");
+</script>    
+    
+    
+    
+  </div>
+</div>
+<div style="float:none;"></div>
+    
+<div id="graphConfig" style="background-image:url(images/margin-right.png); height:700px; width:63px; z-index:50; position:absolute;" onMouseOver="showGraphConfig(1)" onMouseOut="showGraphConfig(0)">
+
+    <div id="divConfigText" style="margin-left:30px; margin-top:30px;">
+    <h2 style="color:#333"><img src="images/config-icon.png" width="20" height="20" align="absmiddle"> GRAPH CONFIGURATION</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis fringilla velit, ut posuere libero tincidunt id. Nunc dictum augue est, a tincidunt lacus euismod eget.</p>
+    <table border="0" style="font-size:10px;">
+    	<tr>
+        	<td width="60"><strong>Start Date</strong></td>
+            <td><input type="text" value="YYYY/MM/DD" size="15"></td>
+       	  <td width="60"><strong>End Date</strong></td>
+            <td><input type="text" value="YYYY/MM/DD" size="15"></td>
+        </tr>
+        <tr>
+        	<td colspan="4">&nbsp;</td>
+        </tr>
+    	<tr>
+        	<td width="60"><strong>Fieldname</strong></td>
+            <td><input type="text" size="15"></td>
+        	<td width="60"><strong>Fieldname</strong></td>
+            <td><input type="text" size="15"></td>
+        </tr>
+    	<tr>
+        	<td width="60"><strong>Fieldname</strong></td>
+            <td><input type="text" size="15"></td>
+        	<td width="60"><strong>Fieldname</strong></td>
+            <td><input type="text" size="15"></td>
+        </tr>
+    
+    </table><br>
+    <center>
+    <input type="button" value="Clear" style="width:120px; margin-right:20px;">
+    <input type="button" value="Apply" style="width:120px">
+    </center>
+    <p>&nbsp;</p>
+    <p>Donec dictum erat quis egestas aliquam. In odio dolor, vehicula in mi sit amet, egestas porttitor risus. Sed eleifend neque a enim mattis ullamcorper. Maecenas congue tristique iaculis. Curabitur vestibulum libero ut molestie eleifend.</p>
+    
+    
+    
+    
+    
+    </div>
+
+</div> 
+
+<div style="width:100%; height:660px; background-color:#FFF;">
+    <img src="images/logo-jgh-bottom.png" width="451" height="71">    
+  <div style="background-image:url(images/margin-left.png); height:700px; width:63px; float:left; margin-right:20px;"></div>
+	<br><br><br>
+
+	<h2>IN-PATIENT / EMERGENCY DAILY VIEW</h2>
+    <p><img id="graphContainer" src="images/filler-graph.png" height="400"> </p>
+    
+    
+
+<table border="0" align="center"><tr>
+<td align="right"><img src="images/life-cycle.png" width="605" height="71">
+<td><span style="font-size:20px; font-weight:bold; color:#666;">} SLA Target = 87%</span>
+    <br><span style="font-size:12px; font-weight:bold; color:#ef7520; margin-left:15px;">Past 24hr overview</span>
+</td></tr></table>
+      
+</div>
+
+<script>
+
+document.getElementById("graphConfig").style.left = (w.innerWidth-78) + "px";
+document.getElementById("graphContainer").style.width = (w.innerWidth-180) + "px";
+
+showGraphConfig(0);
+
+</script>
+<div style="font-size:12px; color:#FFF; float:left; margin-top:10px;" >
+&copy;2014 CoreLab Now
+</div>
+
+<div style="font-size:12px; color:#FFF; float:right; margin-top:10px; margin-right:80px;" >
+Live! Support &nbsp; | &nbsp; Administration Panel
+</div>
+</body>
+</html>
