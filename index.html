@@ -17,6 +17,7 @@
     <link rel="import" href="elements/hhets-list.html">
     <link rel="import" href="elements/hhets-notification.html">
     <link rel="import" href="elements/hhets-sound.html">
+    <link rel="import" href="elements/hhets-query.html">
 
   </head>
   <body>
@@ -25,6 +26,7 @@
       <script src="bower_components/platform/platform.js"></script>
       <script src="bower_components/d3/d3.min.js"></script>
       
+      <hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
       <!-- Content -->
 
 <header>
@@ -61,7 +63,6 @@
     });
     
     function refresh(){
-    
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////
       // ttttttt = new Date().getTime();
       // data = {
@@ -102,15 +103,20 @@
           // },
         // ]
       // };
+      var ajax = document.getElementById('query');
+      
+      var data = ajax.data;
+
+      if (data == null){
+        return;
+      }
+      //METTRE UN HANDLER SUR AJAX!!!!!!!
       var serverTimeStamp = data.metadata.servertime;
 
       if (Math.floor(Math.random() * 2)){
         data.data[0].type = 'troponin';
       }
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      var serverTimeStamp = data.metadata.servertime;
-      
-      
     
       var greenCount = 0;
       var orangeCount = 0;

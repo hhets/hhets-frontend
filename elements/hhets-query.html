@@ -2,14 +2,11 @@
 
 <polymer-element name="hhets-query" attributes="endpoint interval params data">
 <template>
-  <polymer-ajax id="query" auto url="http://gdata.youtube.com/feeds/api/videos/" 
+  <polymer-ajax id="query" url="{{endpoint}}" 
       params='{"alt":"json", "q":"chrome"}'
       handleAs="json"
       on-polymer-response="{{handleResponse}}">
-      ></polymer-ajax>
-
-  <div>
-  </div>
+  </polymer-ajax>
 </template>
   <script>
     (function(){
@@ -18,17 +15,21 @@
         interval:5,
         data:{},
         handleResponse:function(r){
-          data=r;
+          console.log(r.detail.response);
+          this.data=r.detail.response;
+          data=r.detail.response;
         },
         intervalHandler:function(){
           var self = this;
-          var interval = function(){
+          
+          var intervalFn = function(){
             if(self.interval !== 0 || self.interval !== undefined){
               self.$.query.go();
-              setTimeout(self.intervalHandler,self.interval);
+              setTimeout(self.intervalFn,self.interval);
             }
           }
-          interval();
+          
+          intervalFn();
         },
         ready: function() {
           this.intervalHandler()
