@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CoreLabNew</title>
@@ -19,70 +19,70 @@
     <link rel="import" href="elements/hhets-sound.html">
     <link rel="import" href="elements/hhets-query.html">
 
-  </head>
-  <body>
-    <hhets-sound id="sound" src="assets/sounds/outfile.mp3" /></hhets-sound>
-    <!-- Scripts -->
-    <script src="bower_components/platform/platform.js"></script>
-    <script src="bower_components/d3/d3.min.js"></script>
-    
-    <hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
-    <!-- Content -->
-    <div class="wrap">
-    
-      <header>
+</head>
+<body>
+<hhets-sound id="sound" src="assets/sounds/outfile.mp3"/>
+</hhets-sound>
+<!-- Scripts -->
+<script src="bower_components/platform/platform.js"></script>
+<script src="bower_components/d3/d3.min.js"></script>
+
+<hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
+<!-- Content -->
+<div class="wrap">
+
+    <header>
         <div id="alertNotifications" class="row">
         </div>
-      </header>
-      
-      <div class="content">
-      
+    </header>
+    <hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
+
+    <div class="content">
         <div class="row line-time">
-          <div></div>
+            <div></div>
+            <span class="box-round-time"></span>
         </div>
-        
-        <div class="test"></div>
-        
         <div class="row timing">
-        
-          <div class="bigcol">
-            <div class="row">
-              <hhets-label id="greenCounter" value="0" class="green"></hhets-label>
+            <div class="bigcol">
+                <div class="row">
+                    <p class="title-green">Less than <span>10mins</span></p>
+                    <hhets-label id="greenCounter" value="0" class="green"></hhets-label>
+                </div>
+                <div class="row">
+                    <hhets-list id="greenList" data="[]"></hhets-list>
+                </div>
             </div>
-            <div class="row">
-              <hhets-list id="greenList" data="[]"></hhets-list>
+            <div class="bigcol">
+                <div class="row">
+                    <p class="title-yellow">Less than <span>10mins</span></p>
+                    <hhets-label id="orangeCounter" value="0" class="orange"></hhets-label>
+                </div>
+                <div class="row">
+                    <hhets-list id="orangeList" data="[]"></hhets-list>
+                </div>
             </div>
-          </div>
-          
-          <div class="bigcol">
-            <div class="row">
-              <hhets-label id="orangeCounter" value="0" class="orange"></hhets-label>
+            <div class="bigcol">
+                <div class="row">
+                    <p class="title-red">Less than <span>10mins</span></p>
+                    <hhets-label id="redCounter" value="0" class="red"></hhets-label>
+                </div>
+                <div class="row">
+                    <hhets-list id="redList" data="[]"></hhets-list>
+                </div>
+
             </div>
-            <div class="row">
-              <hhets-list id="orangeList" data="[]"></hhets-list>
-            </div>
-          </div>
-          
-          <div class="bigcol">
-            <div class="row">
-              <hhets-label id="redCounter" value="0" class="red"></hhets-label>
-            </div>
-            <div class="row">
-              <hhets-list id="redList" data="[]"></hhets-list>
-            </div>
-          </div>
-          
         </div>
-        
-      </div>
-      
-    </div><!-- wrap -->
-    <footer>
-    </footer>
-  
-  </body> 
-  
-  <script>
+    </div>
+</div>
+<!-- wrap -->
+<footer>
+</footer>
+
+
+
+</body>
+
+<script>
     //Bind ajax response to refresh method
     document.addEventListener('polymer-ready', function() {
       var query = document.getElementById("query");
@@ -93,98 +93,99 @@
           refresh(e.detail.response);
         }
       );
+
     });
-    
-    function refresh(data){
 
-    var sound = document.getElementById("sound");
-    if (data === null){
-        alert('No data received from server!');
-        return;
-      }
-      
-      var serverTimeStamp = data.metadata.servertime;
-      if (Math.floor(Math.random() * 2)){
-        data.data[0].type = 'troponin';
-      }
-    
-      var greenCount = 0;
-      var orangeCount = 0;
-      var redCount = 0;
-      var thereIsTroponin = false;
-      
-      var greemItems = [];
-      var orangeItems = [];
-      var redItems = [];
-      
-      //Parse the server data
-      //========================================================
-      for (i = 0; i < data.data.length; i++) {
-        d = data.data[i];
-        
-        delta = d.enteredTime - serverTimeStamp;
-        minutes = Math.floor(delta / 60) % 60;
-        
-        if (d.type == 'troponin'){
-          thereIsTroponin = true;
-        }
-        
-        if (minutes < 10){
-          redCount++;
-          redItems.push(d.id+(d.type?' '+d.type:''));
-        }
-        else if (minutes < 14){
-          orangeCount++;
-          orangeItems.push(d.id+(d.type?' '+d.type:''));
-        }
-        else{ //> 15
-          greenCount++;
-          if (d.type){
-            greemItems.push(d.id+(d.type?' '+d.type:''));
-          }
-        }
-      }
+    function refresh(data) {
 
-      //Update the UI
-      //========================================================
-      greenCounter = document.getElementById('greenCounter');
-      orangeCounter = document.getElementById('orangeCounter');
-      redCounter = document.getElementById('redCounter');
-      
-      greenList = document.getElementById('greenList');
-      orangeList = document.getElementById('orangeList');
-      redList = document.getElementById('redList');
-      
-      troponinAlert = document.getElementById('notificationTab');
-      
-      //Update values
-      greenCounter.value = greenCount;
-      orangeCounter.value = orangeCount;
-      redCounter.value = redCount;
-      
-      greenList.data = greemItems;
-      orangeList.data = orangeItems;
-      redList.data = redItems;
-      
-      //Troponin
-      //========================================================
-      alertDiv = document.getElementById('alertNotifications');
-      
-      //remove all childs
-      while (alertDiv.hasChildNodes()) {
-        alertDiv.removeChild(alertDiv.lastChild);
-      }
-       if (thereIsTroponin){
-        sound.play();
-        //      <hhets-notification id="notificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
-        
-        troponinAlert = document.createElement("hhets-notification");
-        troponinAlert.value = "Troponin Alert!";
-        troponinAlert.color = "blue";
-        alertDiv.appendChild(troponinAlert);
-      }
-      
+        var sound = document.getElementById("sound");
+        if (data === null) {
+            alert('No data received from server!');
+            return;
+        }
+
+        var serverTimeStamp = data.metadata.servertime;
+        if (Math.floor(Math.random() * 2)) {
+            data.data[0].type = 'troponin';
+        }
+
+        var greenCount = 0;
+        var orangeCount = 0;
+        var redCount = 0;
+        var thereIsTroponin = false;
+
+        var greemItems = [];
+        var orangeItems = [];
+        var redItems = [];
+
+        //Parse the server data
+        //========================================================
+        for (i = 0; i < data.data.length; i++) {
+            d = data.data[i];
+
+            delta = d.enteredTime - serverTimeStamp;
+            minutes = Math.floor(delta / 60) % 60;
+
+            if (d.type == 'troponin') {
+                thereIsTroponin = true;
+            }
+
+            if (minutes < 10) {
+                redCount++;
+                redItems.push(d.id + (d.type ? ' ' + d.type : ''));
+            }
+            else if (minutes < 14) {
+                orangeCount++;
+                orangeItems.push(d.id + (d.type ? ' ' + d.type : ''));
+            }
+            else { //> 15
+                greenCount++;
+                if (d.type) {
+                    greemItems.push(d.id + (d.type ? ' ' + d.type : ''));
+                }
+            }
+        }
+
+        //Update the UI
+        //========================================================
+        greenCounter = document.getElementById('greenCounter');
+        orangeCounter = document.getElementById('orangeCounter');
+        redCounter = document.getElementById('redCounter');
+
+        greenList = document.getElementById('greenList');
+        orangeList = document.getElementById('orangeList');
+        redList = document.getElementById('redList');
+
+        troponinAlert = document.getElementById('notificationTab');
+
+        //Update values
+        greenCounter.value = greenCount;
+        orangeCounter.value = orangeCount;
+        redCounter.value = redCount;
+
+        greenList.data = greemItems;
+        orangeList.data = orangeItems;
+        redList.data = redItems;
+
+        //Troponin
+        //========================================================
+        alertDiv = document.getElementById('alertNotifications');
+
+        //remove all childs
+        while (alertDiv.hasChildNodes()) {
+            alertDiv.removeChild(alertDiv.lastChild);
+        }
+        if (thereIsTroponin) {
+            sound.play();
+            //      <hhets-notification id="notificationTab" value="Troponin Alert!" color="blue"></hhets-notification>
+
+            troponinAlert = document.createElement("hhets-notification");
+            troponinAlert.value = "Troponin Alert!";
+            troponinAlert.color = "blue";
+            alertDiv.appendChild(troponinAlert);
+        }
+
     }
-  </script>
-  
+</script>
+
 </html>

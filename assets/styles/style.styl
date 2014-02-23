@@ -9,10 +9,13 @@ body{
   background: #dfe0e2;
   padding:0;
   font-size:15px
+  margin:0;
 }
+
 ul{
   padding:0;
 }
+
 header{
   display:block;
   width:100%;
@@ -20,16 +23,41 @@ header{
   font: 12px arial;
   text-align: center;
 }
+
+#simpleNotification{
+  background-color #fecc02
+  font-weight bold
+  font 60px arial
+  display inline-block
+  text-align center
+  width 80%
+  margin-top: 30px;
+}
+
+.timing
+  margin-top: 50px;
+  color #666666
+  font 19px verdana
+
 ul{
   list-style-type:none;
 }
+
+.title-green span
+  color #008403
+
+.title-yellow span
+  color #a47400
+
+.title-red span
+  color #bc0000
 
 body > div.content{
 margin-top: 50px;
 }
 
 .bigcol{
-  width:33%;
+  width:33.33333%;
   float:left;
   text-align:center;
   padding:0 30px;
@@ -40,26 +68,74 @@ hhets-label{
   padding:35px;
   border-radius:50%;
   font-size:30px
+  height:165px;
+  width:165px;
+  position:relative;
+  background: rgb(219,219,219);
+  background: -moz-linear-gradient(top,  rgba(219,219,219,1) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(219,219,219,1)), color-stop(100%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top,  rgba(219,219,219,1) 0%,rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top,  rgba(219,219,219,1) 0%,rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(219,219,219,1) 0%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom,  rgba(219,219,219,1) 0%,rgba(255,255,255,1) 100%);
+  display: inline-block;
+  margin-top:20px;
 }
 
 hhets-label div{
-  display:block;
-  width:40px;
-  height:40px;
+  position: absolute;
+  font 61px arial
+  font-weight bold
+  width:165px;
+  margin-left:-45px;
+}
+
+hhets-label:before{
+  border-radius:50%;
+  top: -100px;
+  content:''
+  position:absolute;
+  display :none;
+  background:red;
+  width:200px;
+  height:200px;
 }
 
 hhets-label.green{border-color:#53b850}
 hhets-label.red{border-color:#c45e5c}
 hhets-label.orange{border-color:#f9c98b}
 
-#redList ul,#orangeList ul{
-  margin-top:70px
-  padding:20px;
-  
+
+.line-time div{
+  border 1px dashed #9a9b98
+  position absolute
+  top 340px
+  width: 66.66666%;
+  left: 16.555555%;
 }
 
+.box-round-time
+  width:24px;
+  height:24px;
+  display:block
+  position:absolute;
+  top 330px
+  border:2px solid #a1a1a1;
+  border-radius:25px;
+  -moz-border-radius: 25px;
 
-.line-time{
+.box-round-time-green{
+   background-image: -webkit-linear-gradient(120deg, #31b131, #93f98c);
+   background-image: -moz-linear-gradient(120deg, #31b131, #93f98c);
+   background-image: -o-linear-gradient(120deg, #31b131, #93f98c);
+   background-image: linear-gradient(-30deg, #31b131, #93f98c);
+ }
+
+.box-round-time-yellow{
+  background-image: -webkit-linear-gradient(120deg, #b18948, #f9c98c);
+  background-image: -moz-linear-gradient(120deg, #b18948, #f9c98c);
+  background-image: -o-linear-gradient(120deg, #b18948, #f9c98c);
+  background-image: linear-gradient(-30deg, #b18948, #f9c98c);
 }
 
 hhets-notification .notification-area{
@@ -70,22 +146,38 @@ hhets-notification .notification-area{
   font-size:30px;
   font-weight:bold;
   line-height:60px;
+  height:128px;
 }
 
 hhets-list li{
   border:2px solid #a1a1a1;
   padding:10px 40px;
-  background:#dddddd;
-  width:300px;
+  width:100%;
   border-radius:25px;
+  color #666666
+  font 19px verdana
+  background: #ffffff
+  background: -moz-linear-gradient(top,  #ffffff 0%, #d6d6d6 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#d6d6d6));
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#d6d6d6 100%);
+  background: -o-linear-gradient(top,  #ffffff 0%,#d6d6d6 100%);
+  background: -ms-linear-gradient(top,  #ffffff 0%,#d6d6d6 100%);
+  background: linear-gradient(to bottom,  #ffffff 0%,#d6d6d6 100%);
+  margin 15px 0
 }
 
 footer{
   display:block;
   position:relative;
   margin-top:-30px;
-  height:30px;
-  background:black
+  background: rgb(30,83,46);
+  background: -moz-linear-gradient(top,  rgba(30,83,46,1) 0%, rgba(16,47,13,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,83,46,1)), color-stop(100%,rgba(16,47,13,1)));
+  background: -webkit-linear-gradient(top,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
+  background: -o-linear-gradient(top,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
+  background: linear-gradient(to bottom,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
+  height 150px
 }
 
 .wrap{min-height:100%;}
