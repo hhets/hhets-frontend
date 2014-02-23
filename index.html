@@ -111,15 +111,15 @@
         }
         
         if (minutes < 10){
-          greenCount++;
+          redCount++;
+          redItems.push(d.id);
         }
         else if (minutes < 14){
           orangeCount++;
           orangeItems.push(d.id);
         }
         else{ //> 15
-          redCount++;
-          redItems.push(d.id);
+          greenCount++;
         }
       }
 
