@@ -26,7 +26,7 @@
       <script src="bower_components/platform/platform.js"></script>
       <script src="bower_components/d3/d3.min.js"></script>
       
-      <hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
+      <hhets-query id="query" endpoint="http://localhost:8000/data.json" handleResponse="refresh(r)"></hhets-query>
       <!-- Content -->
 <div class="wrap">
 <header>
@@ -68,10 +68,13 @@
   
   <script>
     document.addEventListener('polymer-ready', function() {
-      refresh();
+      //refresh();
     });
     
-    function refresh(){
+    function refresh(r){
+      console.log(r.detail.response);
+      this.data=r.detail.response;
+      data=r.detail.response;
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////
       // ttttttt = new Date().getTime();
       // data = {
@@ -83,45 +86,14 @@
           // {"id":"JR 1234 2222",
            // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
           // },
-          // {"id":"JR 1234 3333",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 4444",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 5555",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 6666",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 7777",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 8888",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 9999",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 1122",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
-          // {"id":"JR 1234 1133",
-           // "enteredTime":1239081237908 + ttttttt + Math.floor(Math.random() * 1000 * 60 * 15),
-          // },
         // ]
       // };
-      var ajax = document.getElementById('query');
-      
-      var data = ajax.data;
-
-      if (data == null){
-        return;
+      if (data === null){
+        //return;
+        alert('DAMMMIT');
       }
-      //METTRE UN HANDLER SUR AJAX!!!!!!!
+      alert('DAMMMIT3');
       var serverTimeStamp = data.metadata.servertime;
-
       if (Math.floor(Math.random() * 2)){
         data.data[0].type = 'troponin';
       }
@@ -176,6 +148,10 @@
       
       orangeList.data = orangeItems;
       redList.data = redItems;
+      alert('A');
+      console.log(greenCount);
+      console.log(orangeCount);
+      console.log(redCount);
       
       // console.log(thereIsTroponin); 
       alertDiv = document.getElementById('alertNotifications');
