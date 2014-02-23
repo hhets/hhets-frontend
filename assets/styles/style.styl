@@ -1,99 +1,48 @@
-@import "variables.css"
-
 *, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
  }
 
-body,
-ul{
-  padding 0
+body{
+  background: #dfe0e2;
+  padding:0;
 }
 
-ul
-  list-style-type none
-
-#header
+header{
+  display:block;
+  width:100%;
+  height:128px;
+}
+header{
   height 128px
   font 12px arial
   background-color: #fecc01;
   background-image: repeating-linear-gradient(135deg, transparent, transparent 35px, rgba(0,0,0,0.9) 35px, rgba(0,0,0,05) 70px);
   div div
-    background-color #fecc02
-    font-weight bold
-    font 60px arial
-    display inline-block
-    text-align center
-    margin-top 30px
-
-#tbody
-  background: #efede2;
-  background: -moz-linear-gradient(top,  #efede2 0%, #d3ded7 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efede2), color-stop(100%,#d3ded7));
-  background: -webkit-linear-gradient(top,  #efede2 0%,#d3ded7 100%);
-  background: -o-linear-gradient(top,  #efede2 0%,#d3ded7 100%);
-  background: -ms-linear-gradient(top,  #efede2 0%,#d3ded7 100%);
-  background: linear-gradient(to bottom,  #efede2 0%,#d3ded7 100%);
-
-
-.timing p
-  color #666666
-  font 19px verdana
-  margin 16px 0
-
-.title-green
-  color #008403
-
-.title-yellow
-  color #a47400
-
-.title-red
-  color #bc0000
-
-#roundGreen
-  background-image:url('paper.gif')
-
-#roundYellow
-  background-image:url('paper.gif')
-
-#roundRed
-  background-image:url('paper.gif')
-
-#roundGreen,
-#roundYellow,
-#roundRed
-  font 61px arial
+  background-color #fecc02
   font-weight bold
-
-#timingLabel li
-  color #666666
-  font 19px verdana
-  width 187px
-  height 35px
-  border 1px solid #9a9a9a
-  -moz-border-radius: 3px
-  border-radius: 3px
-  background: #ffffff
-  background: -moz-linear-gradient(top,  #ffffff 0%, #d6d6d6 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#d6d6d6));
-  background: -webkit-linear-gradient(top,  #ffffff 0%,#d6d6d6 100%);
-  background: -o-linear-gradient(top,  #ffffff 0%,#d6d6d6 100%);
-  background: -ms-linear-gradient(top,  #ffffff 0%,#d6d6d6 100%);
-  background: linear-gradient(to bottom,  #ffffff 0%,#d6d6d6 100%);
-  margin 15px 0
+  font 60px arial
+  display inline-block
   text-align center
-  vertical-align middle
+}
 
-.line-time div
-  border 1px dashed #9a9b98
-  position absolute
-  top 225px
+ul{
+  list-style-type:none;
+}
 
-#footer
-  background: rgb(30,83,46);
-  background: -moz-linear-gradient(top,  rgba(30,83,46,1) 0%, rgba(16,47,13,1) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,83,46,1)), color-stop(100%,rgba(16,47,13,1)));
-  background: -webkit-linear-gradient(top,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
-  background: -o-linear-gradient(top,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
-  background: -ms-linear-gradient(top,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
-  background: linear-gradient(to bottom,  rgba(30,83,46,1) 0%,rgba(16,47,13,1) 100%);
-  height 150px
+.bigcol{
+width:33%;
+float:left;
+text-align:center;
+padding:0 30px;
+}
+
+hhets-label{
+  width:1px;
+  height:1px;
+  
+  border:15px solid black;
+  padding:20px;
+  border-radius:50%;
+}

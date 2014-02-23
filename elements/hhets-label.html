@@ -1,13 +1,11 @@
 <polymer-element name="hhets-label" attributes="value color size">
   <template>
-    <label class="flipped" style="color:{{color}};font-size:{{size}}px;" id="simpleLabel">{{value}}</label>
+    <label id="simpleLabel">{{value}}</label>
   </template>
   <script>
     (function(){
       Polymer('hhets-label', {
         value: 'undefinedLabel',
-        color: 'green',
-        size : 100,
         valueChanged: function() {
           //todo:
         },
