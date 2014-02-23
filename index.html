@@ -21,49 +21,64 @@
 
   </head>
   <body>
-      <hhets-sound src="assets/sounds/outfile.mp3" /></hhets-sound>
-      <!-- Scripts -->
-      <script src="bower_components/platform/platform.js"></script>
-      <script src="bower_components/d3/d3.min.js"></script>
+    <hhets-sound src="assets/sounds/outfile.mp3" /></hhets-sound>
+    <!-- Scripts -->
+    <script src="bower_components/platform/platform.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    
+    <hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
+    <!-- Content -->
+    <div class="wrap">
+    
+      <header>
+        <div id="alertNotifications" class="row">
+        </div>
+      </header>
       
-      <hhets-query id="query" endpoint="http://localhost:8000/data.json"></hhets-query>
-      <!-- Content -->
-<div class="wrap">
-<header>
-<div id="alertNotifications" class="row">
-</div>
-</header>
-<div class="content">
-  <div class="row line-time">
-    <div></div>
-  </div>
-  <div class="test"></div>
-  <div class="row timing">
-    <div class="bigcol">
-      <div class="row">
-      <hhets-label id="greenCounter" value="0" class="green"></hhets-label>
-    </div></div>
-    <div class="bigcol">
-      <div class="row">
-      <hhets-label id="orangeCounter" value="0" class="orange"></hhets-label>
+      <div class="content">
+      
+        <div class="row line-time">
+          <div></div>
+        </div>
+        
+        <div class="test"></div>
+        
+        <div class="row timing">
+        
+          <div class="bigcol">
+            <div class="row">
+              <hhets-label id="greenCounter" value="0" class="green"></hhets-label>
+            </div>
+            <div class="row">
+              <hhets-list id="greenList" data="[]"></hhets-list>
+            </div>
+          </div>
+          
+          <div class="bigcol">
+            <div class="row">
+              <hhets-label id="orangeCounter" value="0" class="orange"></hhets-label>
+            </div>
+            <div class="row">
+              <hhets-list id="orangeList" data="[]"></hhets-list>
+            </div>
+          </div>
+          
+          <div class="bigcol">
+            <div class="row">
+              <hhets-label id="redCounter" value="0" class="red"></hhets-label>
+            </div>
+            <div class="row">
+              <hhets-list id="redList" data="[]"></hhets-list>
+            </div>
+          </div>
+          
+        </div>
+        
       </div>
-      <div class="row">
-      <hhets-list id="orangeList" data="[]"></hhets-list>
-    </div>
-    </div>
-    <div class="bigcol">
-      <div class="row">
-      <hhets-label id="redCounter" value="0" class="red"></hhets-label>
-      </div>
-      <div class="row">
-      <hhets-list id="redList" data="[]"></hhets-list>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<footer>
-</footer>
+      
+    </div><!-- wrap -->
+    <footer>
+    </footer>
   
   </body> 
   
@@ -95,6 +110,7 @@
       var redCount = 0;
       var thereIsTroponin = false;
       
+      var greemItems = [];
       var orangeItems = [];
       var redItems = [];
       
@@ -112,14 +128,17 @@
         
         if (minutes < 10){
           redCount++;
-          redItems.push(d.id);
+          redItems.push(d.id+(d.type?' '+d.type:''));
         }
         else if (minutes < 14){
           orangeCount++;
-          orangeItems.push(d.id);
+          orangeItems.push(d.id+(d.type?' '+d.type:''));
         }
         else{ //> 15
           greenCount++;
+          if (d.type){
+            greemItems.push(d.id+(d.type?' '+d.type:''));
+          }
         }
       }
 
@@ -129,6 +148,7 @@
       orangeCounter = document.getElementById('orangeCounter');
       redCounter = document.getElementById('redCounter');
       
+      greenList = document.getElementById('greenList');
       orangeList = document.getElementById('orangeList');
       redList = document.getElementById('redList');
       
@@ -139,6 +159,7 @@
       orangeCounter.value = orangeCount;
       redCounter.value = redCount;
       
+      greenList.data = greemItems;
       orangeList.data = orangeItems;
       redList.data = redItems;
       
