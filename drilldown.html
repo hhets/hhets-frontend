@@ -17,6 +17,7 @@
     <link rel="import" href="bower_components/polymer/polymer.html">
     <!-- Our custom elements -->
     <link rel="import" href="elements/hhets-pie-chart.html">
+    <link rel="import" href="elements/hhets-label.html">
   </head>
   <body>
       <!-- Scripts -->
@@ -26,7 +27,33 @@
       <!-- Content -->
       <div>PIE CHART</div>
       <br/>
-      <hhets-pie-chart></hhets-pie-chart>
+      <div id="morning-pie-chart">
+        <hhets-pie-chart></hhets-pie-chart>
+        <span>Good: </span><hhets-label value="80"></hhets-label>
+        <br/>   
+        <span>Warn: </span><hhets-label value="15"></hhets-label>
+        <br/>
+        <span>Bad: </span><hhets-label value="5"></hhets-label>     
+      </div>
+
+      <div id="afternoon-pie-chart">
+        <hhets-pie-chart></hhets-pie-chart>
+        <span>Good: </span><hhets-label value="80"></hhets-label>
+        <br/>   
+        <span>Warn: </span><hhets-label value="15"></hhets-label>
+        <br/>
+        <span>Bad: </span><hhets-label value="5"></hhets-label>     
+      </div>
+
+      <div id="night-pie-chart">
+        <hhets-pie-chart></hhets-pie-chart>
+        <span>Good: </span><hhets-label value="80"></hhets-label>
+        <br/>   
+        <span>Warn: </span><hhets-label value="15"></hhets-label>
+        <br/>
+        <span>Bad: </span><hhets-label value="5"></hhets-label>     
+      </div>
+      
   </body>
   
 </html>

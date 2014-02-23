@@ -5,17 +5,15 @@
   <script>
     (function(){
       Polymer('hhets-pie-chart', {
-        width: 960,
-        height: 500,
-        radius: Math.min(960, 500) / 2,
-        color: d3.scale.category20c(),
-        data: [{"label":"one", "value":20}, 
-                {"label":"two", "value":50}, 
-                {"label":"three", "value":30}],
+        width: 200,
+        height: 200,
+        radius: Math.min(200, 200) / 2,
+        color: d3.scale.ordinal().range(["green", "orange", "red"]),
+        data: [{"label":"Good", "value":80}, 
+                {"label":"Warn", "value":15}, 
+                {"label":"Bad", "value":5}],
         ready: function() {
           var self = this;
-
-          console.log(self.data);
           
           var vis = d3.select(self.$.pieChartArea)
             .append("svg:svg")
@@ -42,7 +40,7 @@
               return "translate(" + arc.centroid(d) + ")";            
             })
             .attr("text-anchor", "middle")
-            .text(function(d, i) { return data[i].label; }); 
+            /*.text(function(d, i) { return self.data[i].label; })*/; 
         }
       });
     })();
