@@ -1,0 +1,48 @@
+<polymer-element name="hhets-pie-chart" attributes="">
+  <template>
+      <div id="pieChartArea"></div>
+  </template>
+  <script>
+    (function(){
+      Polymer('hhets-pie-chart', {
+        width: 200,
+        height: 200,
+        radius: Math.min(200, 200) / 2,
+        color: d3.scale.ordinal().range(["green", "orange", "red"]),
+        data: [{"label":"Good", "value":80}, 
+                {"label":"Warn", "value":15}, 
+                {"label":"Bad", "value":5}],
+        ready: function() {
+          var self = this;
+          
+          var vis = d3.select(self.$.pieChartArea)
+            .append("svg:svg")
+            .data([self.data])
+              .attr("width", self.width)
+              .attr("height", self.height)
+            .append("svg:g")
+              .attr("transform", "translate(" + self.radius + "," + self.radius + ")");
+
+          var arc = d3.svg.arc().outerRadius(self.radius);
+          var pie = d3.layout.pie().value(function(d) { return d.value; });
+          var arcs = vis.selectAll("g.slice")
+            .data(pie) 
+            .enter()
+              .append("svg:g")
+                .attr("class", "slice");
+          arcs.append("svg:path")
+            .attr("fill", function(d, i) { return self.color(i); } )
+            .attr("d", arc);
+          arcs.append("svg:text")
+            .attr("transform", function(d) {
+              d.innerRadius = 0;
+              d.outerRadius = self.radius;
+              return "translate(" + arc.centroid(d) + ")";            
+            })
+            .attr("text-anchor", "middle")
+            /*.text(function(d, i) { return self.data[i].label; })*/; 
+        }
+      });
+    })();
+  </script>
+</polymer-element>

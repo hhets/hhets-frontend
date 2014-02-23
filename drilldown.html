@@ -7,19 +7,40 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/normalize.css">
     <link rel="stylesheet" href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/styles.css">
     <link rel="stylesheet" href="assets/styles/style.css">
+    -->
 
     <link rel="import" href="bower_components/polymer/polymer.html">
     <!-- Our custom elements -->
+    <link rel="import" href="elements/hhets-pie-chart.html">
     <link rel="import" href="elements/hhets-label.html">
+<<<<<<< HEAD
     <link rel="import" href="elements/hhets-app.html">
     <link rel="import" href="elements/hhets-list.html">
     <link rel="import" href="elements/hhets-notification.html">
     <link rel="import" href="elements/hhets-sound.html">
+    <style>
 
+    body {
+      font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .browser text {
+      text-anchor: end;
+    }
+
+    </style>
   </head>
   <body>
       <!-- Scripts -->
@@ -27,9 +48,35 @@
       <script src="bower_components/d3/d3.min.js"></script>
       
       <!-- Content -->
-      <hhets-app></hhets-app>
+      <div>PIE CHART</div>
+      <br/>
+      <div id="morning-pie-chart">
+        <hhets-pie-chart></hhets-pie-chart>
+        <span>Good: </span><hhets-label value="80"></hhets-label>
+        <br/>   
+        <span>Warn: </span><hhets-label value="15"></hhets-label>
+        <br/>
+        <span>Bad: </span><hhets-label value="5"></hhets-label>     
+      </div>
 
-      <div id="">TEST</div>
+      <div id="afternoon-pie-chart">
+        <hhets-pie-chart></hhets-pie-chart>
+        <span>Good: </span><hhets-label value="80"></hhets-label>
+        <br/>   
+        <span>Warn: </span><hhets-label value="15"></hhets-label>
+        <br/>
+        <span>Bad: </span><hhets-label value="5"></hhets-label>     
+      </div>
+
+      <div id="night-pie-chart">
+        <hhets-pie-chart></hhets-pie-chart>
+        <span>Good: </span><hhets-label value="80"></hhets-label>
+        <br/>   
+        <span>Warn: </span><hhets-label value="15"></hhets-label>
+        <br/>
+        <span>Bad: </span><hhets-label value="5"></hhets-label>     
+      </div>
+
   </body>
   
 </html>
