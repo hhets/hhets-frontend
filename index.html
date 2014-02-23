@@ -86,6 +86,8 @@
     //Bind ajax response to refresh method
     document.addEventListener('polymer-ready', function() {
       var query = document.getElementById("query");
+      
+      query.endpoint = location.origin +"/data.json";
       query.addEventListener("polymer-response", 
         function(e) {
           refresh(e.detail.response);
