@@ -82,8 +82,8 @@ hhets-label div {
   position: absolute;
   font: 61px arial;
   font-weight: bold;
-  width: 165px;
-  margin-left: -45px;
+  width: 100%;
+  margin-left: -40px;
 }
 hhets-label:before {
   border-radius: 50%;
