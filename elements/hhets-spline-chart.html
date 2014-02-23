@@ -1,0 +1,21 @@
+<polymer-element name="hhets-spline-chart" attributes="value color size">
+  <template>
+    <label class="flipped" style="color:{{color}};font-size:{{size}}px;" id="simpleLabel">{{value}}</label>
+  </template>
+  <script>
+    (function(){
+      Polymer('hhets-label', {
+        value: 'undefinedLabel',
+        color: 'green',
+        size : 100,
+        valueChanged: function() {
+          //todo:
+        },
+        ready: function() {
+          //var self = this;
+          //var label = self.$.simpleLabel;
+        }
+      });
+    })();
+  </script>
+</polymer-element>
