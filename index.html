@@ -7,9 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/normalize.css">
-    <link rel="stylesheet" href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/style.css">
 
     <link rel="import" href="bower_components/polymer/polymer.html">
@@ -22,48 +20,43 @@
 
   </head>
   <body>
+      <hhets-sound src="assets/sounds/outfile.mp3" /></hhets-sound>
       <!-- Scripts -->
       <script src="bower_components/platform/platform.js"></script>
       <script src="bower_components/d3/d3.min.js"></script>
       
       <!-- Content -->
-      <hhets-sound src="assets/sounds/outfile.mp3" /></hhets-sound>
-      <hhets-app></hhets-app>
 
-      <div id="alertNotifications"></div>
-
-      <hhets-label id="greenCounter" value="0" color="green"></hhets-label>
-      
-      <hhets-label id="orangeCounter" value="0" color="orange"></hhets-label>
+<header>
+<div class="row">
+<div id="alertNotifications" class="col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1"></div>   
+</div>
+</header>
+<content>
+  <div class="row line-time">
+    <div class="col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2"></div>
+  </div>
+  <div class="row timing">
+    <div class="bigcol">
+      <hhets-label id="greenCounter" value="0" class="green"></hhets-label>
+    </div>
+    <div class="bigcol">
+      <hhets-label id="orangeCounter" value="0" class="orange"></hhets-label>
       <hhets-list id="orangeList" data="[]"></hhets-list>
-      
-      <hhets-label id="redCounter" value="0" color="red"></hhets-label>
+    </div>
+    <div class="bigcol">
+      <hhets-label id="redCounter" value="0" class="red"></hhets-label>
       <hhets-list id="redList" data="[]"></hhets-list>
-
+    </div>
+  </div>
+</content>
+<footer>
+</footer>
+  
   </body> 
   
   <script>
     document.addEventListener('polymer-ready', function() {
-      
-      // window.setInterval(function(){
-          // greenCounter = document.getElementById('greenCounter');
-          // orangeCounter = document.getElementById('orangeCounter');
-          // redCounter = document.getElementById('redCounter');
-          
-          // orangeList = document.getElementById('orangeList');
-          // redList = document.getElementById('redList');
-
-          // greenCounter.value = Math.floor(Math.random() * 20) + 1;
-          // orangeCounter.value = Math.floor(Math.random() * 15);
-          // redCounter.value = Math.floor(Math.random() * 5);
-        // }
-      // ,2000);
-
-      // window.setInterval(function(){
-          // notification = document.getElementById('notificationTab');
-          // notification.value == '' ? notification.value = 'Troponin Alert!' :  notification.value = '';
-      // }, 5000);
-      
       refresh();
     });
     
@@ -110,13 +103,14 @@
         // ]
       // };
       var serverTimeStamp = data.metadata.servertime;
-      
+
       if (Math.floor(Math.random() * 2)){
         data.data[0].type = 'troponin';
       }
-      
-      //format: 1393107306414
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      var serverTimeStamp = data.metadata.servertime;
+      
+      
     
       var greenCount = 0;
       var orangeCount = 0;
