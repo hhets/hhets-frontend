@@ -64,6 +64,7 @@ hhets-label.orange {
 hhets-notification .notification-area {
   width: 100%;
   background: #ff0;
+  background-image: -webkit-repeating-linear-gradient(315deg, #f9c98b, #f9c98b 35px, #f29143 35px, #f29143 70px);
   background-image: repeating-linear-gradient(135deg, #f9c98b, #f9c98b 35px, #f29143 35px, #f29143 70px);
   min-height: 60px;
   font-size: 30px;
